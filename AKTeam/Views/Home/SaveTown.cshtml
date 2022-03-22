@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "تعريف مدينه";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>A</title>
+    <style>
+        .save {
+            background-color: dodgerblue;
+            border: 1px solid #ddd;
+            color: white;
+            cursor: pointer;
+            background-color: #3C8DBC;
+            font-weight: bold;
+            padding: 9px 15px;
+            font-size: 16px;
+            border-radius: 15px;
+            width: 9%;
+        }
+
+        .ok:hover {
+            background-color: royalblue;
+        }
+
+        .Lab {
+            clear: both;
+            display: inline-block;
+            height: 26px;
+            margin: 0% 0% 1% 6%;
+            width: 11%;
+            font-size: 19px;
+            color: #333;
+        }
+
+        .head {
+            background-color: #3577ff;
+            font-size: 18px;
+            width: 40%;
+            color: white;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 9px 15px;
+            border-radius: 15px;
+            width: 9%;
+        }
+
+        .head {
+            background-color: #0067f5;
+            width: 40%;
+            color: white;
+        }
+
+        .Elements {
+            background-color: #e5e5e5;
+            list-style-type: none;
+            border: ridge 1px;
+            margin: 0;
+            padding: 8px;
+        }
+
+        body {
+            background-image: url(~/img/back.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .Txt {
+            display: inline-block;
+            width: 50%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .drop {
+            width: 15%;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="head">تعريف مدينه</h1>
+    @using (Html.BeginForm("SaveTown", "Product", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="Elements">
+            <li class="">
+                <label class="Lab">الكود</label>
+                <input type="text" class="Txt drop"  required/>
+            </li>
+            <li class="">
+                <label class="Lab">الإسم</label>
+                <input type="text" class="Txt" required />
+            </li>
+            <li class="">
+                <label class="Lab">ملاحظات</label>
+                <input type="text" class="Txt" />
+            </li>
+
+            <li class="">
+                <button class="save">حفظ</button>
+                <a href="@Url.Action(" displaytowns", "Product" )"><input style="background-color:#0bf765" class="save" value="عرض الكل" /></a>
+            </li>
+        </ul>
+    }
+</body>
+</html>
